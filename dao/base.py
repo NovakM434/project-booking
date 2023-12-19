@@ -34,5 +34,5 @@ class BaseDAO:
             query = select(cls.model).filter_by(**filter_by)  # орм заапрос
             result = await session.execute(query)  # делаем орм запрос в
             # переменную
-            return result.mappings().all()  # отдаем ответ. на самом деле там
+            return result.scalars().all()  # отдаем ответ. на самом деле там
             # изначально ответ не json но фастапи сам его трансформирует в json
